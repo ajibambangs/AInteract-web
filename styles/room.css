@@ -12,18 +12,23 @@
 }
 
 #members__container {
-  background-color: #262625;
+  background-color: #fff;
   border-right: 1px solid #797a79;
   overflow-y: auto;
   width: 90%;
-  max-width: 250px;
+  top: 74vh;
+  left: 137vh;
+  max-width: 460px;
   position: fixed;
-  height: 100%;
+  height: 24%;
   z-index: 999;
+  border-radius: 10px;
+  border: 1px solid #437EEB;
 }
 
 #members__count {
-  background-color: #1d1d1c;
+  background-color: #fff;
+  color: black;
   padding: 7px 15px;
   font-size: 14px;
   font-weight: 600;
@@ -36,9 +41,11 @@
   align-items: center;
   padding: 0 1rem;
   position: fixed;
-  font-size: 18px;
-  background-color: #323143;
-  width: 218px;
+  font-size: 17px;
+  background-color: #437EEB;
+  border-radius: 6px;
+  width: 458px;
+  height: 55px;
 }
 
 #member__list {
@@ -71,17 +78,20 @@
 .member_name{
   font-size: 14px;
   line-height: 0;
+  color: #000;
 }
 
 #messages__container {
-  height: calc(100vh - 85px);
-  background-color: #262625;
-  right: 0;
+  height: calc(100vh - 76vh);
+  background-color: #fff;
+  left: 4vh;
+  top: 66vh;
   position: absolute;
   width: 100%;
-  max-width: 25rem;
+  max-width: 72rem;
   overflow-y: auto;
-  border-left: 1px solid #111;
+  border-radius: 10px;
+  border: 1px solid #437EEB;
 }
 
 #messages {
@@ -139,21 +149,21 @@
 #message__form {
   width: 23.2rem;
   position: fixed;
-  bottom: 0;
+  left: 45px;
+  bottom: 25px;
   display: block;
-  background-color: #1a1a1a;
-  padding: 1em;
 }
 
 #message__form input {
-  color: #fff;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  padding: 18px;
-  font-size: 14px;
+  color: #000;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 300%;
+  border: 1px solid #437EEB;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
   box-sizing: border-box;
-  background-color: #3f434a;
 }
 
 #message__form input:focus {
@@ -166,12 +176,12 @@
 
 #stream__container {
   justify-self: center;
-  width: calc(100% - 40.7rem);
+  width: calc(100% -  -0.3rem);
   position: fixed;
-  left: 15.7rem;
+  /* left: 15.7rem; */
   top: clac(100vh - 72px);
   overflow-y: auto;
-  height: 100%;
+  height: 57%;
 }
 
 #stream__box{
@@ -279,9 +289,9 @@
     display: none;
   }
 
-  #chat__button {
+  /* #chat__button {
     display: block;
-  }
+  } */
 }
 
 #stream__box {
@@ -300,11 +310,9 @@
 
 .stream__actions {
   position: fixed;
-  bottom: 1rem;
+  bottom: 15rem;
   border-radius: 8px;
-  background-color: #1a1a1a60;
-  padding: 1rem;
-  left: 50%;
+  left: 10%;
   display: none;
   gap: 1rem;
   transform: translateX(-50%);
@@ -313,7 +321,7 @@
 .stream__actions a,
 .stream__actions button {
   cursor: pointer;
-  background-color: #262625;
+  background-color: #437EEB;
   color: #fff;
   border: none;
   display: flex;
@@ -335,20 +343,73 @@
 .stream__actions button.active,
 .stream__actions a:hover,
 .stream__actions button:hover {
-  background-color: #845695;
+  background-color: #437EEB;
 }
 
 #join-btn{
-  background-color: #845695;
+  background-color: #437EEB;
   font-size: 18px;
-  padding: 25px 50px;
+  padding: 10px 20px;
   border: none;
   color:#fff;
 
   position: fixed;
-  bottom: 1rem;
+  bottom: 15rem;
   border-radius: 8px;
   left:50%;
   transform: translateX(-50%);
   cursor: pointer;
+}
+
+.btn button{
+  display: block;
+  background: none;
+  color: #FF4848;
+  margin-left: 95px;
+  width: 160px;
+  height: 45px;
+  border: 1px solid #FF4848;
+  font-size: 18px;
+  border-radius: 10px;
+  transition: .6s;
+  overflow: hidden;
+}
+
+button:focus{
+  outlline: none;
+}
+
+button:before{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+button:after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+}
+
+button:hover{
+  background: #FF4848;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover:before{
+  transform: translateX(300px) skewX(-15deg);
+  opacity: .6;
+  transition: .7s;
+}
+
+button:hover:after{
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: .7s;
 }

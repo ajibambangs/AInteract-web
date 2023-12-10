@@ -1,4 +1,4 @@
-const APP_ID = "YOUR-APP-ID"
+const APP_ID = "d4c1b82ed3bd42a1b450ed61a0ae4ff8"
 
 let uid = sessionStorage.getItem('uid')
 if(!uid){
@@ -42,10 +42,10 @@ let joinRoomInit = async () => {
 
     channel.on('MemberJoined', handleMemberJoined)
     channel.on('MemberLeft', handleMemberLeft)
-    channel.on('ChannelMessage', handleChannelMessage)
+    // channel.on('ChannelMessage', handleChannelMessage)
 
     getMembers()
-    addBotMessageToDom(`Welcome to the room ${displayName}! 👋`)
+    // addBotMessageToDom(`Welcome to the room ${displayName}! 👋`)
 
     client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
     await client.join(APP_ID, roomId, token, uid)
