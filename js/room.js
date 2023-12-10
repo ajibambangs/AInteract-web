@@ -1,5 +1,5 @@
-// let messagesContainer = document.getElementById('messages');
-// messagesContainer.scrollTop = messagesContainer.scrollHeight;
+let messagesContainer = document.getElementById('messages');
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
 const memberContainer = document.getElementById('members__container');
 const memberButton = document.getElementById('members__button');

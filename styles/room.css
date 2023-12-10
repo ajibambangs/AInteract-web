@@ -111,14 +111,17 @@
 }
 
 .message__body {
-  background-color: #363739;
+  background-color: #fff;
+  border: 1px solid #437EEB;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 5px 15px;
+  margin-left: 18px;
   width: fit-content;
   max-width: 900px;
 }
 
 .message__body strong {
+  font-size: 14px;
   font-weight: 600;
   color: #ede0e0;
 }
@@ -126,23 +129,25 @@
 .message__body__bot{
   padding: 0 20px;
   max-width: 900px;
-  color: #bdbdbd;
+  color: black;
 }
 
 
 .message__author {
   margin-right: 10px;
-  color: #2aca3e!important;
+  color: #437EEB!important;
 
 }
 
 .message__author__bot {
   margin-right: 10px;
-  color: #a52aca!important;
+  color: #437EEB!important;
 
 }
 
 .message__text {
+  font-size: 12px;
+  color: black;
   margin: 0;
 }
 
