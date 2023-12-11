@@ -22,7 +22,7 @@
 .create-room-container{
   display: inline-flex;
   margin-top: 172px;
-  height: 440px;
+  height: 500px;
   width: 520px;
   padding: 55px 40px 40px 40px;
   flex-direction: column;
@@ -48,7 +48,7 @@ h2{
   margin-bottom: 30px;
 }
 
-input{
+input, select{
   position: absolute;
   width: 100%;
   outline: none;
@@ -60,6 +60,11 @@ input{
   background: transparent;
   transition: 0.1s ease;
   z-index: 1111;
+}
+
+select {
+  height: 40px;
+  color: grey;
 }
 
 ::placeholder{
@@ -101,7 +106,7 @@ button{
 }
 
 button:focus{
-  outlline: none;
+  outline: none;
 }
 
 button:before{
@@ -212,7 +217,7 @@ button:hover:after{
 }
 
 #avatar__selection {
-  margin-reight: 10px;
+  margin-right: 10px;
   display: flex;
   gap: 1em;
 }

@@ -11,8 +11,9 @@ form.addEventListener('submit', (e) => {
     sessionStorage.setItem('display_name', e.target.name.value)
 
     let inviteCode = e.target.room.value
+    let languange = e.target.lang.value;
     if(!inviteCode){
         inviteCode = String(Math.floor(Math.random() * 10000))
     }
-    window.location = `room.html?room=${inviteCode}`
+    window.location = `room.html?room=${inviteCode}&lang=${languange}`
 })

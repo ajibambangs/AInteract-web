@@ -57,6 +57,10 @@ let handleChannelMessage = async (messageData, MemberId) => {
         addMessageToDom(data.displayName, data.message)
     }
 
+    if (data.type == 'transcript') {
+        translateText(data.message, data.langsource);
+    }
+
     if(data.type === 'user_left'){
         document.getElementById(`user-container-${data.uid}`).remove()
 
@@ -69,6 +73,31 @@ let handleChannelMessage = async (messageData, MemberId) => {
             }
         }
     }
+}
+
+function translateText(text, langsource) {
+    const getLang = new URLSearchParams(window.location.search).get('lang');
+    const targetLanguage = getLang; // Replace with your desired language code
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+    const data = {
+        q: text,
+        source: langsource,
+        target: targetLanguage,
+    };
+
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const translatedText = data.data.translations[0].translatedText;
+            document.getElementById("transcript").innerHTML = '<div class="transcript-text" style="background-color: rgba(0, 0, 0, 0.3); font-size: 1.5em; padding: 5px 10px; display: block; position: fixed; bottom: 350px; left: 100px; right: 100px; z-index: 1000; text-align: center;">' + translatedText + '</div>'
+        })
+        .catch((error) => console.error(error));
 }
 
 let sendMessage = async (e) => {
