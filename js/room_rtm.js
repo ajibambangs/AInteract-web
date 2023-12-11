@@ -57,6 +57,10 @@ let handleChannelMessage = async (messageData, MemberId) => {
         addMessageToDom(data.displayName, data.message)
     }
 
+    if (data.type == 'transcript') {
+        document.getElementById("transcript").innerHTML = '<div class="transcript-text" style="background-color: rgba(0, 0, 0, 0.3); padding: 5px 10px; display: block; position: fixed; bottom: 300px; left: 100px; right: 100px; z-index: 1000; text-align: center;">' + data.message + '</div>'
+    }
+
     if(data.type === 'user_left'){
         document.getElementById(`user-container-${data.uid}`).remove()
 

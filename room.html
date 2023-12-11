@@ -80,10 +80,59 @@
         </div>
     </main>
     
+    <div id="transcript"></div>
+
 </body>
 <script type="text/javascript" src="js/AgoraRTC_N-4.11.0.js"></script>
 <script type="text/javascript" src="js/agora-rtm-sdk-1.4.4.js"></script>
 <script type="text/javascript" src="js/room.js"></script>
 <script type="text/javascript" src="js/room_rtm.js"></script>
 <script type="text/javascript" src="js/room_rtc.js"></script>
+
+<script>
+    const recognition = new webkitSpeechRecognition();
+    const micBtn = document.getElementById('join-btn');
+
+    recognition.lang = 'id-ID';
+    recognition.continuous = true;
+
+    micBtn.addEventListener('click', () => {
+        if (recognition.onstart) {
+            recognition.stop();
+            micBtn.classList.remove('active');
+        } else {
+            recognition.start();
+            micBtn.classList.add('active');
+        }
+    });
+
+    recognition.onresult = event => {
+        const transcript = event.results[0][0].transcript;
+        channel.sendMessage({ text: JSON.stringify({ 'type': 'transcript', 'message': transcript, 'displayName': displayName }) })
+    };
+
+    // function translateText(text) {
+    //     const targetLanguage = "en"; // Replace with your desired language code
+    //     const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+    //     const data = {
+    //         q: text,
+    //         source: "id",
+    //         target: targetLanguage,
+    //     };
+
+    //     fetch(url, {
+    //         method: "POST",
+    //         body: JSON.stringify(data),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             const translatedText = data.data.translations[0].translatedText;
+    //             translationEl.textContent = translatedText;
+    //         })
+    //         .catch((error) => console.error(error));
+    // }
+</script>
 </html>
