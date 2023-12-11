@@ -90,6 +90,7 @@
 <script type="text/javascript" src="js/room_rtc.js"></script>
 
 <script>
+    const apiKey = "AIzaSyBJ3HQz3x4WUP1HGx7nA87sekfoTHBCOz8";
     const recognition = new webkitSpeechRecognition();
     const micBtn = document.getElementById('join-btn');
 
@@ -108,31 +109,31 @@
 
     recognition.onresult = event => {
         const transcript = event.results[0][0].transcript;
-        channel.sendMessage({ text: JSON.stringify({ 'type': 'transcript', 'message': transcript, 'displayName': displayName }) })
+        translateText(transcript);
     };
 
-    // function translateText(text) {
-    //     const targetLanguage = "en"; // Replace with your desired language code
-    //     const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
-    //     const data = {
-    //         q: text,
-    //         source: "id",
-    //         target: targetLanguage,
-    //     };
+    function translateText(text) {
+        const targetLanguage = "en"; // Replace with your desired language code
+        const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+        const data = {
+            q: text,
+            source: "id",
+            target: targetLanguage,
+        };
 
-    //     fetch(url, {
-    //         method: "POST",
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             const translatedText = data.data.translations[0].translatedText;
-    //             translationEl.textContent = translatedText;
-    //         })
-    //         .catch((error) => console.error(error));
-    // }
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                const translatedText = data.data.translations[0].translatedText;
+                channel.sendMessage({ text: JSON.stringify({ 'type': 'transcript', 'message': translatedText, 'displayName': displayName }) })
+            })
+            .catch((error) => console.error(error));
+    }
 </script>
 </html>
