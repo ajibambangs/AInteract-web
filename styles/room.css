@@ -183,7 +183,6 @@
   justify-self: center;
   width: calc(100% -  -0.3rem);
   position: fixed;
-  /* left: 15.7rem; */
   top: clac(100vh - 72px);
   overflow-y: auto;
   height: 57%;
@@ -359,7 +358,7 @@
   color:#fff;
 
   position: fixed;
-  bottom: 15rem;
+  bottom: 16rem;
   border-radius: 8px;
   left:50%;
   transform: translateX(-50%);
